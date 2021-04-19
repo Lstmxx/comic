@@ -13,7 +13,7 @@ const style: StyleProp<ViewStyle> = {
   justifyContent: 'center'
 }
 
-const DetailsScreen: React.FC<DetailsScreenProp> = ({ navigation, route }) => {
+const User: React.FC<UserTapProps> = ({ navigation, route }) => {
   console.log(route.params)
   return (
     <View style={ style }>
@@ -22,4 +22,4 @@ const DetailsScreen: React.FC<DetailsScreenProp> = ({ navigation, route }) => {
   )
 }
 
-export default DetailsScreen
+export default User

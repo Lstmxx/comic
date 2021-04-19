@@ -1,11 +1,16 @@
 import { StackScreenProps } from '@react-navigation/stack'
+import { BottomTabScreenProps  } from '@react-navigation/bottom-tabs'
 
-type ParamList = {
-  Home: undefined,
-  Details: { userId: string }
+type ScreenParamList = {
+  ComicDetails: { comicId: string }
 }
 
+type TabParamList = ScreenParamList & {
+  Home: undefined,
+  User: undefined
+}
 declare global {
-  type HomeScreenProps = StackScreenProps<ParamList, 'Home'>
-  type DetailsScreenProp = StackScreenProps<ParamList, 'Details'> 
+  type HomeTapProps = BottomTabScreenProps<TabParamList, 'Home'>
+  type UserTapProps = BottomTabScreenProps<TabParamList, 'User'>
+  type ComicDetailsProps = StackScreenProps<ScreenParamList, 'ComicDetails'>
 }

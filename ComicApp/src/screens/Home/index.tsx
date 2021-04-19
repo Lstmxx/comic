@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -14,17 +14,18 @@ const style: StyleProp<ViewStyle> = {
   justifyContent: 'center'
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
-  
+const HomeScreen: React.FC<HomeTapProps> = ({ navigation }) => {
+  const [i, setI] = useState(0)
   function onClick() {
-    navigation.navigate(
-      { name: 'Details', params: { userId: '1' } }
-    )
+    navigation.navigate('ComicDetails', {
+      comicId: 'helo'
+    })
+    setI(i + 1)
   }
   
   return (
     <View style={ style }>
-      <Text>hello react native</Text>
+      <Text>hello react native {i}</Text>
       <Button title="Go to detils" onPress={ onClick }/>
       {/* <Text>{ title }</Text> */}
     </View>

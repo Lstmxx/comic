@@ -4,13 +4,13 @@
     [
       "module-resolver", 
       {
-        "root": ["./src"],
         "alias": {
-          "@src": "src",
-          "@apis": "src/apis",
-          "@utils": "src/utils",
-          "@screens": "src/screens"
+          "@src": "./src",
+          "@apis": "./src/apis",
+          "@utils": "./src/utils",
+          "@screens": "./src/screens"
         },
+        "exclude": ["node_modules"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ]

@@ -10,24 +10,48 @@
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
+import Home from '@screens/home/index'
+import User from '@screens/user/index'
+import ComicDetails from '@screens/comic-details/index'
 
-import Home from '@screens/Home'
-import Details from '@screens/Details'
+const Tab = createBottomTabNavigator()
 
-const Stack = createStackNavigator()
+const HomeStack = createStackNavigator()
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={ Home } />
+      <HomeStack.Screen name="ComicDetails" component={ ComicDetails } />
+    </HomeStack.Navigator>
+  )
+}
 
+const UserStack = createStackNavigator()
+function UserStackScreen() {
+  return (
+    <UserStack.Navigator>
+      <UserStack.Screen name="User" component={ User } />
+      <UserStack.Screen name="ComicDetails" component={ ComicDetails } />
+    </UserStack.Navigator>
+  )
+}
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
+      <Tab.Navigator>
+        <Tab.Screen
           name="Home"
-          component={ Home }
-          options={{ title: 'wdnmd' }}
+          component={ HomeStackScreen }
+          options={{ title: '最新更新' }}
         />
-        <Stack.Screen name="Details" component={ Details } />
-      </Stack.Navigator> 
+        <Tab.Screen
+          name="User"
+          component={ UserStackScreen }
+          options={{ title: '我的' }}
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
