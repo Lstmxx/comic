@@ -13,4 +13,9 @@ declare global {
   type HomeTapProps = BottomTabScreenProps<TabParamList, 'Home'>
   type UserTapProps = BottomTabScreenProps<TabParamList, 'User'>
   type ComicDetailsProps = StackScreenProps<ScreenParamList, 'ComicDetails'>
+  type ResponseType<T> = {
+    msg: string
+    code: number
+    data: T
+  }
 }
